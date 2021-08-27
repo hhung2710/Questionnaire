@@ -1,17 +1,18 @@
-const Sequelize = require('sequelize');
+const { Sequelize, DataTypes, Model } = require('sequelize');
 const sequelize = require('../config/database');
 
-const Account = sequelize.define(
-	'accounts',
-	{
-		username: { type: Sequelize.STRING, allowNull: false },
-		password: { type: Sequelize.STRING, allowNull: false },
-		email: { type: Sequelize.STRING, allowNull: false },
-		score: { type: Sequelize.DECIMAL },
-	},
-	{
-		timestamps: true,
-	}
-);
+class Account extends Model { };
+
+Account.init({
+    username: { type: Sequelize.STRING, allowNull: false },
+    password: { type: Sequelize.STRING, allowNull: false },
+    email: { type: Sequelize.STRING, allowNull: false },
+    score: { type: Sequelize.DECIMAL },
+    role: { type: Sequelize.STRING, allowNull: false },
+}, {
+    sequelize,
+    timestamps: true,
+    modelName: 'accounts',
+});
 
 module.exports = Account;

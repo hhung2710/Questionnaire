@@ -7,17 +7,17 @@ const Sequelize = require('sequelize');
     remember to check your port in mysql
 */
 
-let sequelize = new Sequelize('', 'sa', '', {
-    dialect: 'mysql',
-    host: 'localhost',
-    port: 3308,
-});
+// let sequelize = new Sequelize('', 'sa', '', {
+//     dialect: 'mysql',
+//     host: 'localhost',
+//     port: 3308,
+// });
 
-sequelize.query("CREATE DATABASE IF NOT EXISTS `questionnaire`;").then((data) => {
-    console.log("success");
-}).catch((err) => {
-    console.log(err);
-});
+// sequelize.query("CREATE DATABASE IF NOT EXISTS `questionnaire`;").then((data) => {
+//     console.log("success");
+// }).catch((err) => {
+//     console.log(err);
+// });
 
 sequelize = new Sequelize('questionnaire', 'sa', '', {
     dialect: 'mysql',
